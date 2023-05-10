@@ -164,4 +164,4 @@ cython_debug/
 .json
 
 # Sensitive
-~/password-manager-start/data.json
+password-manager-start/data.json
