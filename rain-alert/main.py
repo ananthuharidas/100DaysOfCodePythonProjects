@@ -1,6 +1,8 @@
 import requests
+import os
 
-API_KEY = "69f04e4613056b159c2761a9d9e664d2"
+API_KEY = os.environ.get("OWM_API_KEY")
+print(API_KEY)
 MY_LATITUDE = 10.148830
 MY_LONGITUDE = 76.229843
 
@@ -26,8 +28,8 @@ for hour_data in hourly_weather_slice:
 
 
 def telegram_bot_sendtext(bot_message):
-    bot_token = '<bot_token>'
-    bot_chatID = '<char_ID>'
+    bot_token = os.environ.get("telegram_rain_alert_99_bot_token")
+    bot_chatID = os.environ.get("CHAT_ID")
     send_text = 'https://api.telegram.org/bot' + bot_token + '/sendMessage?chat_id=' + bot_chatID + '&parse_mode=Markdown&text=' + bot_message
 
     telegram_response = requests.get(send_text)
